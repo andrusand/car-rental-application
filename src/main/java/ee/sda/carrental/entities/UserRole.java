@@ -14,6 +14,6 @@ public class UserRole {
 
     @GeneratedValue
     @Id
-    Integer id;
-    String name;
+    Integer roleID;
+    String role_type;
 }
