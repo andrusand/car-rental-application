@@ -3,6 +3,7 @@ package ee.sda.carrental.entity;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 
@@ -15,11 +16,13 @@ public class Car {
     @Id
     Integer carID;
 
-    @ManyToOne
+    @ToString.Exclude
+    @ManyToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "companyID")
     private Company company;
 
-    @ManyToOne
+    @ToString.Exclude
+    @ManyToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "branchID")
     private Branch branch;
 
