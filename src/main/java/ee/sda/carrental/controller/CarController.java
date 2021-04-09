@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.ByteArrayInputStream;
@@ -30,6 +31,14 @@ public class CarController {
         List<Car> carList = service.findAll();
         model.addAttribute("cars", carList);
         return "carList";
+    }
+
+    @GetMapping("/{carID}")
+    public String singleCarPathVariable(@PathVariable("carID") int id, Model model) {
+        Car singleCar = service.read(id);
+        model.addAttribute("car", singleCar);
+        return "singleCarDetails";
+
     }
 
 }
