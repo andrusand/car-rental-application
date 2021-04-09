@@ -21,8 +21,4 @@ public class Company {
     String contact_address;
     String logo;
 
-    @ToString.Exclude
-    @OneToMany(mappedBy = "company")
-    List<Car> carList;
-
 }

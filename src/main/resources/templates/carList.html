@@ -46,7 +46,7 @@
 
 
 
-<table class="table">
+<table class="table" style="text-align: center; justify-content: center">
     <thread>
         <tr>
             <th scope="col"><h5>Company logo</h5></th>
@@ -67,8 +67,8 @@
         </tr>
         <div th:each="car : ${cars}">
             <tr>
-                <td><img  th:attr="src=@{${car.company.logo}}, alt=@{background}" style="width: 100px; height: 75px; display: inline-block" /></td></td>
-                <td><p th:text="${car.company.company_name}"></p></td>
+                <td><img th:attr="src=@{${car.company.logo}}, alt=@{background}" style="width: 100px; height: 75px; display: inline-block" /></td></td>
+                <td><p th:text="${car.company.company_name}" style="font-weight: bold"></p></td>
                 <td><p th:text="${car.branch.city}"></p></td>
                 <td><p th:text="${car.brand}"></p></td>
                 <td><p th:text="${car.model}"></p></td>
@@ -80,7 +80,7 @@
                 <td><p th:text="${car.price_per_day}"></p></td>
                 <td><a role="button" class="btn btn-success" th:href="@{'/car/' + ${car.carID}}">Book</a></td>
                 <td><a role="button" class="btn btn-primary" th:href="@{'/car/' + ${car.carID}+ '/edit'}">Edit</a></td>
-                <td><a role="button" class="btn btn-danger" th:href="@{'/car/' + ${car.carID} + '/delete'}">Delete</a></td>
+                <td><a role="button" class="btn btn-danger" th:href="@{'/car/' + ${car.carID}+ '/delete'}">Delete</a></td>
             </tr>
         </div>
         </thread>

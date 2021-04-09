@@ -43,7 +43,7 @@
     </div>
 </nav>
 Update car
-<form action="#" th:action="@{/{carID}/edit}" th:object="${car}" method="post">
+<form action="#" th:action="@{/{id}/edit}" th:object="${car}" method="post">
     <div class="form-row">
         <div class="form-group col-md-6 mb-2 mt-2">
             <label for="exampleFormControlTextarea1">Company</label>
@@ -95,6 +95,7 @@ Update car
             <label for="exampleFormControlTextarea11">Car description</label>
             <textarea required class="form-control" id="exampleFormControlTextarea11" rows="1" th:field="*{car_description}"></textarea>
         </div>
+        <input type="hidden" th:field="*{carID}">
         <button type="submit" class="btn btn-primary mb-2 mt-2">Update car</button>
     </div>
 </form>

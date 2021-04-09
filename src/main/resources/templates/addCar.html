@@ -43,29 +43,26 @@
     </div>
 </nav>
 
-<div class="d-flex">
-    <div class="px-4 py-5 my-5 text-center">
-        <img class="d-block mx-auto mb-4 img-fluid" src="/images/dashboard-hero-1.jpg" alt="dashboard-hero" style="width: 30%">
+    <div class="px-4 py-2 my-2 text-center">
+        <img class="d-block mx-auto mb-4 img-fluid" src="/images/addcar-hero-1.jpg" alt="addcar-hero" style="width: 30%">
         <h1 class="display-5 fw-bold">Adding a new car</h1>
         <div class="col-lg-6 mx-auto">
             <p class="lead mb-4">Please fill the form below</p>
         </div>
     </div>
-</div>
-
 
 <form action="#" th:action="@{/dashboard/addcar}" th:object="${car}" method="post">
     <div class="form-row">
 
         <div class="form-group col-md-6 mb-2 mt-2">
-            <label for="exampleFormControlTextarea1">Company</label>
+            <label for="exampleFormControlTextarea1"><h6>Company</h6></label>
             <select required th:field="*{company}" id="exampleFormControlTextarea1" class="form-control">
                 <option value="" selected>Select your company</option>
                 <option th:each="company : ${companies}" th:value="${company.companyID}" th:text="${company.company_name}">Choose...</option>
             </select>
         </div>
         <div class="form-group col-md-6 mb-2 mt-2">
-            <label for="exampleFormControlTextarea2">Branch</label>
+            <label for="exampleFormControlTextarea2"><h6>Branch</h6></label>
             <select required th:field="*{branch}" id="exampleFormControlTextarea2" class="form-control">
                 <option value="" selected>Select your branch</option>f
                 <option th:each="branch : ${branches}" th:value="${branch.branchID}" th:text="${branch.city}">Choose...</option>
@@ -73,48 +70,48 @@
         </div>
 
         <div class="form-group col-md-6 mb-2 mt-2">
-            <label for="exampleFormControlTextarea3">Brand</label>
+            <label for="exampleFormControlTextarea3"><h6>Brand</h6></label>
             <textarea required class="form-control" id="exampleFormControlTextarea3" rows="1" th:field="*{brand}"></textarea>
         </div>
         <div class="form-group col-md-6 mb-2 mt-2">
-            <label for="exampleFormControlTextarea4">Model</label>
+            <label for="exampleFormControlTextarea4"><h6>Model</h6></label>
             <textarea required class="form-control" id="exampleFormControlTextarea4" rows="1" th:field="*{model}"></textarea>
         </div>
         <div class="form-group col-md-6 mb-2 mt-2">
-            <label for="exampleFormControlTextarea5">Year</label>
+            <label for="exampleFormControlTextarea5"><h6>Year</h6></label>
             <textarea required class="form-control" id="exampleFormControlTextarea5" rows="1" th:field="*{year}"></textarea>
         </div>
         <div class="form-group col-md-6 mb-2 mt-2">
-            <label for="exampleFormControlTextarea6">Colour</label>
+            <label for="exampleFormControlTextarea6"><h6>Colour</h6></label>
             <textarea required class="form-control" id="exampleFormControlTextarea6" rows="1" th:field="*{colour}"></textarea>
         </div>
         <div class="form-group col-md-6 mb-2 mt-2">
-            <label for="exampleFormControlTextarea7">Mileage</label>
+            <label for="exampleFormControlTextarea7"><h6>Mileage</h6></label>
             <textarea required class="form-control" id="exampleFormControlTextarea7" rows="1" th:field="*{mileage}"></textarea>
         </div>
         <div class="form-group col-md-6 mb-2 mt-2">
-            <label for="exampleFormControlSelect8">Rental status</label>
+            <label for="exampleFormControlSelect8"><h6>Rental status</h6></label>
             <select class="form-control" id="exampleFormControlSelect8" name="RentalStatus" th:field="*{rental_status}">
                 <option value="Available">Available</option>
                 <option value="Not available">Not available</option>
             </select>
         </div>
         <div class="form-group col-md-6 mb-2 mt-2">
-            <label for="exampleFormControlTextarea9">Price per day</label>
+            <label for="exampleFormControlTextarea9"><h6>Price Per Day</h6></label>
             <textarea required class="form-control" id="exampleFormControlTextarea9" rows="1" th:field="*{price_per_day}"></textarea>
         </div>
         <div class="form-group col-md-6 mb-2 mt-2">
-            <label for="exampleFormControlSelect10">Gearbox type</label>
+            <label for="exampleFormControlSelect10"><h6>Gearbox type</h6></label>
             <select class="form-control" id="exampleFormControlSelect10" name="Gearbox" th:field="*{gearbox_type}">
                 <option value="Manual">Manual</option>
                 <option value="Automatic">Automatic</option>
             </select>
         </div>
         <div class="form-group col-md-6 mb-2 mt-2">
-            <label for="exampleFormControlTextarea11">Car description</label>
+            <label for="exampleFormControlTextarea11"><h6>Car Description</h6></label>
             <textarea required class="form-control" id="exampleFormControlTextarea11" rows="1" th:field="*{car_description}"></textarea>
         </div>
-        <button type="submit" class="btn btn-primary mb-2 mt-2">Add car</button>
+        <button type="submit" class="btn btn-primary mb-5 mt-2">Add car</button>
     </div>
 </form>
 
