@@ -2,6 +2,7 @@ package ee.sda.carrental.entity;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.List;
@@ -19,5 +20,9 @@ public class Company {
     String internet_domain;
     String contact_address;
     String logo;
+
+    @ToString.Exclude
+    @OneToMany(mappedBy = "company")
+    List<Car> carList;
 
 }

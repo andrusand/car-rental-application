@@ -2,7 +2,9 @@ package ee.sda.carrental.controller;
 
 
 import ee.sda.carrental.entity.Car;
+import ee.sda.carrental.service.BranchService;
 import ee.sda.carrental.service.CarService;
+import ee.sda.carrental.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +21,12 @@ public class DashboardController {
     @Autowired
     CarService service;
 
+    @Autowired
+    CompanyService companyService;
+
+    @Autowired
+    BranchService branchService;
+
 
     @GetMapping("")
     String dashboard(){
@@ -28,6 +36,8 @@ public class DashboardController {
     @GetMapping("/addcar")
     String createCarGet(Model model){
         model.addAttribute("car", new Car());
+        model.addAttribute("companies", companyService.findAll());
+        model.addAttribute("branches", branchService.findAll());
         return "addCar";
     }
 

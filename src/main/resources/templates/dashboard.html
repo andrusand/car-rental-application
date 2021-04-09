@@ -8,7 +8,7 @@
     <script src="https://kit.fontawesome.com/b0b4d0fe2c.js" crossorigin="anonymous"></script>
     <title>Dashboard</title>
 </head>
-<body>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
         <a class="navbar-brand" href="/">Car Rental Supreme</a>
@@ -43,60 +43,35 @@
         </div>
     </div>
 </nav>
-<main>
-    <div id="page-content-wrapper">
-    <div class="px-4 py-5 my-5 text-center">
-        <img class="d-block mx-auto mb-4 img-fluid" src="/images/dashboard-hero-1.jpg" alt="dashboard-hero" style="width: 30%">
-        <h1 class="display-5 fw-bold">Welcome to your Dashboard</h1>
-        <div class="col-lg-6 mx-auto">
-            <p class="lead mb-4">Please choose your action</p>
+<body>
+
+    <div class="d-flex">
+        <div class="bg-light border-right">
+                <div class="list-group list-group-flush">
+                    <a href="/dashboard/" class="list-group-item list-group-item-action bg-light"><i class="fas fa-home"></i> Dashboard</a>
+                    <a href="/dashboard/addcar" class="list-group-item list-group-item-action bg-light"><i class="fas fa-car"></i> Add New Car</a>
+                    <a href="#" class="list-group-item list-group-item-action bg-light"><i class="fas fa-book"></i> Bookings</a>
+                    <a href="#" class="list-group-item list-group-item-action bg-light"><i class="fas fa-money-bill-wave"></i> Invoices</a>
+                    <a href="#" class="list-group-item list-group-item-action bg-light"><i class="fas fa-city"></i> Companies</a>
+                    <a href="#" class="list-group-item list-group-item-action bg-light"><i class="fas fa-user-friends"></i> Clients</a>
+                </div>
+
+            </div>
+        <div class="d-flex">
+            <div class="px-4 py-5 my-5 text-center">
+                <img class="d-block mx-auto mb-4 img-fluid" src="/images/dashboard-hero-1.jpg" alt="dashboard-hero" style="width: 30%">
+                <h1 class="display-5 fw-bold">Welcome to your Dashboard</h1>
+                <div class="col-lg-6 mx-auto">
+                    <p class="lead mb-4">Please choose your action</p>
+                </div>
+            </div>
         </div>
-    </div>
-    </div>
-</main>
-<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-    <div class="position-sticky pt-3">
-        <ul class="nav flex-column">
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/dashboard/addcar">
-                    <i class="bi bi-sliders"></i>
-                    Add new vehicle
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <i class="bi bi-journal-bookmark"></i>
-                    Invoices
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <i class="bi bi-cart-check"></i>
-                    Products
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <i class="bi bi-person-circle"></i>
-                    Customers
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <i class="bi bi-graph-up"></i>
-                    Reports
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <i class="bi bi-headset"></i>
-                    Helpdesk
-                </a>
-            </li>
-        </ul>
-    </div>
-    </div>
-</nav>
+
+        </div>
+
+
+
+
 
 
 <footer class="bg-dark text-center text-white">
