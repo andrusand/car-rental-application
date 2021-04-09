@@ -14,7 +14,6 @@ public class Branch {
     @Id
     Integer branchID;
 
-
     @ManyToOne
     @JoinColumn(name = "employeeID")
     private Employee employee;
@@ -23,9 +22,6 @@ public class Branch {
     @JoinColumn(name = "companyID")
     private Company company;
 
-    @ManyToOne
-    @JoinColumn(name = "carID")
-    private Car car;
 
     String city;
 }

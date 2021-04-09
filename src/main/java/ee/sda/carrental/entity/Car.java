@@ -16,12 +16,12 @@ public class Car {
     @Id
     Integer carID;
 
-    @ToString.Exclude
+
     @ManyToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "companyID")
     private Company company;
 
-    @ToString.Exclude
+
     @ManyToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "branchID")
     private Branch branch;
