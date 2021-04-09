@@ -7,10 +7,9 @@ import lombok.var;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.ByteArrayInputStream;
@@ -40,5 +39,31 @@ public class CarController {
         return "singleCarDetails";
 
     }
+
+    @GetMapping("/{carID}/edit")
+    public String updateCarVariable(@PathVariable("carID") int id, Model model) {
+        Car car = service.read(id);
+        model.addAttribute("car", car);
+        return "/updateCar";
+
+    }
+    @PostMapping("/{carID}/update")
+    public String updateUser(@PathVariable("carID") int id, @Validated Car car,
+                             BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            car.setCarID(id);
+            return "/updateCar";
+        }
+        service.createOrUpdate(car);
+        return "redirect:/index";
+    }
+
+    @GetMapping("/{carID}/delete")
+    public String deleteCar(@PathVariable("carID") int id, Model model) {
+        Car car = service.read(id);
+        service.delete(car);
+        return "redirect:/index";
+    }
+
 
 }
