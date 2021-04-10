@@ -32,7 +32,9 @@ public class CarController {
     String allCars(Model model){
         List<Car> carList = service.findAll();
         model.addAttribute("cars", carList);
-        return "carList";
+
+    return "carList";
+
     }
 
     @GetMapping("/{carID}")
@@ -59,14 +61,14 @@ public class CarController {
             return "/updateCar";
         }
         service.createOrUpdate(car);
-        return "redirect:/index";
+        return "redirect:/car/all";
     }
 
     @GetMapping("/{id}/delete")
     public String deleteCar(@PathVariable("id") int id, Model model) {
         Car car = service.read(id);
         service.delete(car);
-        return "carList";
+        return "redirect:/car/all";
     }
 
 
