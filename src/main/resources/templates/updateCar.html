@@ -20,7 +20,7 @@
                     <a class="nav-link active" aria-current="page" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/info">Features</a>
+                    <a class="nav-link" href="#">Features</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/car/all">Car listings</a>
@@ -43,16 +43,34 @@
     </div>
 </nav>
 Update car
-<form action="#" th:action="@{/{id}/edit}" th:object="${car}" method="post">
+<form th:action="@{/car/__${id}__/edit/}" th:object="${car}" method="post">
     <div class="form-row">
         <div class="form-group col-md-6 mb-2 mt-2">
-            <label for="exampleFormControlTextarea1">Company</label>
-            <textarea required class="form-control" id="exampleFormControlTextarea1" rows="1" th:field="*{company.company_name}"></textarea>
+            <label for="exampleFormControlTextarea15">Company</label>
+            <textarea required class="form-control" id="exampleFormControlTextarea15" rows="1" th:field="*{company.company_name}"></textarea>
         </div>
         <div class="form-group col-md-6 mb-2 mt-2">
-            <label for="exampleFormControlTextarea2">Branch city</label>
-            <textarea required class="form-control" id="exampleFormControlTextarea2" rows="1" th:field="*{branch.city}"></textarea>
+            <label for="exampleFormControlTextarea13">Company</label>
+            <textarea required class="form-control" id="exampleFormControlTextarea13" rows="1" th:field="*{company.companyID}"></textarea>
         </div>
+        <div class="form-group col-md-6 mb-2 mt-2">
+            <label for="exampleFormControlTextarea8">CarID</label>
+            <textarea required class="form-control" id="exampleFormControlTextarea8" rows="1" th:field="*{carID}"></textarea>
+        </div>
+        <div class="form-group col-md-6 mb-2 mt-2">
+            <label for="exampleFormControlTextarea151">Company logo</label>
+            <textarea required class="form-control" id="exampleFormControlTextarea151" rows="1" th:field="*{company.logo}"></textarea>
+        </div>
+
+        <div class="form-group col-md-6 mb-2 mt-2">
+            <label for="exampleFormControlTextarea24">Branch city</label>
+            <textarea required class="form-control" id="exampleFormControlTextarea24" rows="1" th:field="*{branch.city}"></textarea>
+        </div>
+        <div class="form-group col-md-6 mb-2 mt-2">
+            <label for="exampleFormControlTextarea23">Branch city</label>
+            <textarea required class="form-control" id="exampleFormControlTextarea23" rows="1" th:field="*{branch.branchID}"></textarea>
+        </div>
+
         <div class="form-group col-md-6 mb-2 mt-2">
             <label for="exampleFormControlTextarea3">Brand</label>
             <textarea required class="form-control" id="exampleFormControlTextarea3" rows="1" th:field="*{brand}"></textarea>
@@ -95,7 +113,7 @@ Update car
             <label for="exampleFormControlTextarea11">Car description</label>
             <textarea required class="form-control" id="exampleFormControlTextarea11" rows="1" th:field="*{car_description}"></textarea>
         </div>
-        <input type="hidden" th:field="*{carID}">
+        <!--<input type="hidden" th:field="*{carID}">-->
         <button type="submit" class="btn btn-primary mb-2 mt-2">Update car</button>
     </div>
 </form>

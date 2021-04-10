@@ -17,12 +17,12 @@ public class Car {
     Integer carID;
 
 
-    @ManyToOne(cascade = {CascadeType.ALL})
+    @ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH })
     @JoinColumn(name = "companyID")
     private Company company;
 
 
-    @ManyToOne(cascade = {CascadeType.ALL})
+    @ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH })
     @JoinColumn(name = "branchID")
     private Branch branch;
 

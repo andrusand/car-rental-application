@@ -1,23 +1,16 @@
 package ee.sda.carrental.controller;
 
 import ee.sda.carrental.entity.Car;
-import ee.sda.carrental.repository.CarRepository;
+import ee.sda.carrental.entity.Reservation;
 import ee.sda.carrental.service.CarService;
-import javassist.NotFoundException;
-import lombok.var;
+import ee.sda.carrental.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
 
 @Controller
@@ -27,12 +20,18 @@ public class CarController {
     @Autowired
     CarService service;
 
+    @Autowired
+    ReservationService reservationService;
+
+
 
     @GetMapping("/all")
     String allCars(Model model){
         List<Car> carList = service.findAll();
         model.addAttribute("cars", carList);
-        return "carList";
+
+    return "carList";
+
     }
 
     @GetMapping("/{carID}")
@@ -44,7 +43,7 @@ public class CarController {
     }
 
     @GetMapping("/{id}/edit")
-    public String updateCarVariable(@PathVariable("id") int id, Model model) {
+    public String updateCarGet(@PathVariable("id") int id, Model model) {
         Car car = service.read(id);
         model.addAttribute("car", car);
         return "/updateCar";
@@ -52,22 +51,38 @@ public class CarController {
     }
 
     @PostMapping("/{id}/edit")
-    public String updateUser(@PathVariable("id") int id, @Validated Car car,
+    public String updateCarPost(@PathVariable("id") int id, @Validated Car car,
                              BindingResult result, Model model) {
         if (result.hasErrors()) {
             car.setCarID(id);
             return "/updateCar";
         }
         service.createOrUpdate(car);
-        return "redirect:/index";
+        return "redirect:/car/all";
     }
 
     @GetMapping("/{id}/delete")
     public String deleteCar(@PathVariable("id") int id, Model model) {
         Car car = service.read(id);
         service.delete(car);
-        return "carList";
+        return "redirect:/car/all";
     }
 
 
+    @GetMapping("/{id}/book")
+    public String readReservation(@PathVariable("id") int id, Model model) {
+        Car car = service.read(id);
+        model.addAttribute("car", car);
+        return "reservationCar";
+
+    }
+
+    @PostMapping("/{id}/book")
+    public String createOrUpdateBooking(@PathVariable("id") int id, @Validated Car car,
+                             BindingResult result, Model model) {
+        Reservation reservation = new Reservation();
+        reservationService.createOrUpdate(reservation);
+        model.addAttribute("reservation", reservation);
+                return "reservationCar";
+    }
 }
