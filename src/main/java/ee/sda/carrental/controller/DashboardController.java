@@ -2,6 +2,7 @@ package ee.sda.carrental.controller;
 
 
 import ee.sda.carrental.entity.Car;
+import ee.sda.carrental.entity.Reservation;
 import ee.sda.carrental.service.BranchService;
 import ee.sda.carrental.service.CarService;
 import ee.sda.carrental.service.CompanyService;
@@ -46,5 +47,6 @@ public class DashboardController {
         service.createOrUpdate(car);
         return new RedirectView("/car/all");
     }
+
 
 }
